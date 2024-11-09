@@ -41,4 +41,3 @@ Movie.insertMany([
 })
 
 Movie.find({}).then(data => console.log(data));
-
