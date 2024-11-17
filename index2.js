@@ -19,3 +19,12 @@ app.set('view engine', 'ejs');
 app.listen(3001, () => {
     console.log('PORT running on 3001')
 })
+
+app.get('/product', async (req, res) => {
+    // this usually returns a promise. We can either use '.then' or async await 
+    const products = await Product.find({});
+    console.log(products);
+    
+    // res.status(200).json({ message: 'ALL PRODUCTS!', products });
+    res.render('products/index');
+})
