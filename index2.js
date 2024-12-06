@@ -17,6 +17,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
 // Views Directory
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: true }))
 
 app.listen(3001, () => {
     console.log('PORT running on 3001')
@@ -28,6 +29,16 @@ app.get('/products', async (req, res) => {
 
     // res.status(200).json({ message: 'ALL PRODUCTS!', products });
     res.render('products/index', { products });
+})
+
+app.get('/products/new', (req, res) => {
+    res.render('products/new');
+})
+
+app.post('/products', async(req, res) => {
+    const newProduct =  new Product(req.body);
+    await newProduct.save();
+    res.redirect(`/products/${newProduct._id}`)
 })
 
 // Display single product 
