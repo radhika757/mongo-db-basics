@@ -13,6 +13,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
         console.log("OH NO MONGO ERROR", err);
     })
 
+// EJS - render views (HTML templates) using templating language engine. 
+// Views Directory
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -20,11 +22,10 @@ app.listen(3001, () => {
     console.log('PORT running on 3001')
 })
 
-app.get('/product', async (req, res) => {
+app.get('/products', async (req, res) => {
     // this usually returns a promise. We can either use '.then' or async await 
     const products = await Product.find({});
-    console.log(products);
-    
+
     // res.status(200).json({ message: 'ALL PRODUCTS!', products });
-    res.render('products/index');
+    res.render('products/index', { products });
 })
