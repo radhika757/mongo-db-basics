@@ -29,3 +29,12 @@ app.get('/products', async (req, res) => {
     // res.status(200).json({ message: 'ALL PRODUCTS!', products });
     res.render('products/index', { products });
 })
+
+// Display single product 
+app.get('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    // Product.findOne({ _id: id })
+    const product = await Product.findById(id);
+    console.log(product);
+    res.render('products/show', { product })
+})
