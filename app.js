@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema({
     }
 })
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Productt', productSchema);
 
 const bike = new Product({ name: 'KTM', price: 20000, isOnSale: false });
 bike.save();
