@@ -5,14 +5,15 @@
   "main": "index2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index2.js",
-    "dev" : "nodemon index2.js"
+    "start": "node index2.js",
+    "dev": "nodemon index2.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "method-override": "^3.0.0",
     "mongoose": "^8.8.0",
     "nodemon": "^3.1.7"
   }
